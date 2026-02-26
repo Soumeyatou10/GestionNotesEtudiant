@@ -1,0 +1,40 @@
+<div [ngClass]="getClassesCarte()" class="rounded-lg p-4 flex flex-col gap-2 shadow-sm">
+
+  <!-- En-tête : nom + badge -->
+  <div class="flex items-start justify-between">
+    <div>
+      <p class="font-bold text-gray-800 text-sm">{{ etudiant.prenom }} {{ etudiant.nom }}</p>
+      <p class="text-xs text-gray-500">Classe : {{ etudiant.classe }}</p>
+    </div>
+
+    <span *ngIf="moyenne >= 14"
+      class="text-xs font-semibold px-2 py-0.5 rounded badge-reussite">Réussite</span>
+    <span *ngIf="moyenne >= 10 && moyenne < 14"
+      class="text-xs font-semibold px-2 py-0.5 rounded badge-passable">Passable</span>
+    <span *ngIf="moyenne < 10"
+      class="text-xs font-semibold px-2 py-0.5 rounded badge-echec">Échec</span>
+  </div>
+
+  <!-- Notes -->
+  <div>
+    <p class="text-xs text-gray-600 mb-1">Notes :</p>
+    <div class="flex flex-wrap gap-1">
+      <span *ngFor="let note of etudiant.notes"
+        class="bg-white border border-gray-300 text-xs px-2 py-0.5 rounded">
+        {{ note }}/20
+      </span>
+    </div>
+  </div>
+
+  <!-- Moyenne + Supprimer -->
+  <div class="flex items-center justify-between mt-1">
+    <span class="text-sm font-medium text-gray-700">
+      Moyenne : {{ moyenne | number:'1.2-2' }}/20
+    </span>
+    <button (click)="onSupprimer()"
+      class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded transition">
+      Supprimer
+    </button>
+  </div>
+
+</div>

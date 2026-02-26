@@ -1,0 +1,34 @@
+<div class="p-6">
+  <h2 class="text-center text-blue-600 font-bold text-xl mb-4">Liste des Étudiants</h2>
+
+  <!-- Filtre par classe -->
+  <div class="flex justify-center items-center gap-2 mb-6">
+    <label class="text-sm text-gray-600">Filtrer par classe :</label>
+    <select [(ngModel)]="filtreClasse"
+      class="border border-gray-300 rounded px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
+      <option value="tous">Tous</option>
+      <option value="6ème">6ème</option>
+      <option value="5ème">5ème</option>
+      <option value="4ème">4ème</option>
+      <option value="3ème">3ème</option>
+    </select>
+  </div>
+
+  <!-- Message si vide -->
+  <p *ngIf="getEtudiantsFiltres().length === 0"
+    class="text-center text-gray-500 py-10">
+    Aucun étudiant trouvé
+  </p>
+
+  <!-- Grille des cartes -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+    @for (etudiant of getEtudiantsFiltres(); track etudiant.id) {
+      <app-carte-etudiant
+        [etudiant]="etudiant"
+        [moyenne]="calculerMoyenne(etudiant.notes)"
+        (suppression)="supprimerEtudiant($event)">
+      </app-carte-etudiant>
+    }
+  </div>
+</div>
+

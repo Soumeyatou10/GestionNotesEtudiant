@@ -1,0 +1,71 @@
+<header class="bg-slate-700 text-white shadow">
+  <div class="flex items-center justify-between px-4 sm:px-6 py-3">
+    <!-- Logo / Titre -->
+    <span class="font-bold text-base tracking-wide">Gestion des Notes</span>
+
+    <!-- Bouton hamburger pour mobile avec VOTRE icône -->
+    <button 
+      (click)="isMenuOpen = !isMenuOpen"
+      class="block md:hidden p-2 rounded-lg hover:bg-slate-600 transition"
+      aria-label="Menu">
+      
+      
+      <img 
+        *ngIf="!isMenuOpen"
+        src="../../../../public/assets/icons/menu.png" 
+        alt="Menu" 
+        class="w-6 h-6">
+    
+    </button>
+
+    <!-- Navigation desktop (caché sur mobile) -->
+    <nav class="hidden md:flex gap-1">
+      <a
+        [routerLink]="['/accueil']"
+        routerLinkActive="!bg-blue-500 !text-white"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="text-sm px-3 py-1 rounded border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition whitespace-nowrap">
+        Accueil
+      </a>
+      <a
+        [routerLink]="['/liste-notes']"
+        routerLinkActive="!bg-blue-500 !text-white"
+        class="text-sm px-3 py-1 rounded border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition whitespace-nowrap">
+        Liste des Notes
+      </a>
+      <a
+        [routerLink]="['/statistiques']"
+        routerLinkActive="!bg-blue-500 !text-white"
+        class="text-sm px-3 py-1 rounded border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition whitespace-nowrap">
+        Statistiques
+      </a>
+    </nav>
+  </div>
+
+  <nav 
+    *ngIf="isMenuOpen" 
+    class="md:hidden bg-slate-800 border-t border-slate-600 p-4 flex flex-col gap-2">
+    <a
+      [routerLink]="['/accueil']"
+      routerLinkActive="!bg-blue-500 !text-white"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="isMenuOpen = false"
+      class="text-sm px-3 py-2 rounded border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition text-center">
+      Accueil
+    </a>
+    <a
+      [routerLink]="['/liste-notes']"
+      routerLinkActive="!bg-blue-500 !text-white"
+      (click)="isMenuOpen = false"
+      class="text-sm px-3 py-2 rounded border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition text-center">
+      Liste des Notes
+    </a>
+    <a
+      [routerLink]="['/statistiques']"
+      routerLinkActive="!bg-blue-500 !text-white"
+      (click)="isMenuOpen = false"
+      class="text-sm px-3 py-2 rounded border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition text-center">
+      Statistiques
+    </a>
+  </nav>
+</header>

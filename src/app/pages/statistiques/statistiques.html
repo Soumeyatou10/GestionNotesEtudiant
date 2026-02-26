@@ -1,0 +1,35 @@
+<div class="p-6">
+  <h2 class="text-center font-bold text-gray-800 text-xl mb-8">Statistiques Générales</h2>
+
+  <div class="flex flex-wrap gap-4 justify-center max-w-2xl mx-auto">
+
+    <!-- Total étudiants -->
+    <div class="border border-gray-200 rounded-lg p-6 text-center min-w-[160px]">
+      <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Total Étudiants</p>
+      <p class="text-4xl font-bold text-gray-800">{{ etudiantsSignal().length }}</p>
+    </div>
+
+    <!-- Moyenne générale -->
+    <div class="border border-gray-200 rounded-lg p-6 text-center min-w-[160px]">
+      <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Moyenne Générale</p>
+      <p class="text-4xl font-bold text-blue-600">{{ moyenneGenerale() | number:'1.2-2' }}</p>
+    </div>
+
+    <!-- Réussites -->
+    <div [ngClass]="{ 'border-green-500': true }"
+      class="border-2 rounded-lg p-6 text-center min-w-[160px]">
+      <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Réussites</p>
+      <p class="text-4xl font-bold text-green-600">{{ nombreReussites() }}</p>
+      <p class="text-xs text-green-600 mt-1">moyenne ≥ 10</p>
+    </div>
+
+    <!-- Échecs -->
+    <div [ngClass]="{ 'border-red-500': true }"
+      class="border-2 rounded-lg p-6 text-center min-w-[160px]">
+      <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Échecs</p>
+      <p class="text-4xl font-bold text-red-500">{{ nombreEchecs() }}</p>
+      <p class="text-xs text-red-500 mt-1">moyenne &lt; 10</p>
+    </div>
+
+  </div>
+</div>
