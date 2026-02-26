@@ -1,9 +1,8 @@
-<header class="bg-slate-700 text-white shadow">
+<header class="bg-blue-600 text-white shadow">
   <div class="flex items-center justify-between px-4 sm:px-6 py-3">
-    <!-- Logo / Titre -->
+
     <span class="font-bold text-base tracking-wide">Gestion des Notes</span>
 
-    <!-- Bouton hamburger pour mobile avec VOTRE icône -->
     <button 
       (click)="isMenuOpen = !isMenuOpen"
       class="block md:hidden p-2 rounded-lg hover:bg-slate-600 transition"
@@ -12,13 +11,13 @@
       
       <img 
         *ngIf="!isMenuOpen"
-        src="../../../../public/assets/icons/menu.png" 
+        src="../../../../assets/icons/menu.png" 
         alt="Menu" 
         class="w-6 h-6">
     
     </button>
 
-    <!-- Navigation desktop (caché sur mobile) -->
+   
     <nav class="hidden md:flex gap-1">
       <a
         [routerLink]="['/accueil']"
