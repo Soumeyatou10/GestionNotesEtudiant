@@ -5,7 +5,7 @@
 
     <button 
       (click)="isMenuOpen = !isMenuOpen"
-      class="block md:hidden p-2 rounded-lg hover:bg-slate-600 transition"
+      class="block md:hidden p-2 rounded-lg transition"
       aria-label="Menu">
       
       
@@ -14,7 +14,11 @@
         src="../../../../assets/icons/menu.png" 
         alt="Menu" 
         class="w-6 h-6">
-    
+      <img 
+      src="../../../../assets/icons/close.png"
+      alt="Fermer" 
+      class="w-6 h-6"
+      *ngIf="isMenuOpen">
     </button>
 
    

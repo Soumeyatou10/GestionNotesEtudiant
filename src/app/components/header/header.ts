@@ -9,5 +9,5 @@ import { NgClass, NgIf } from '@angular/common';
   templateUrl: './header.html',
 })
 export class HeaderComponent {
-   isMenuOpen = true;
+   isMenuOpen = false;
 }
